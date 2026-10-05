@@ -1,0 +1,44 @@
+{
+  "name": "gui-thuong",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test tests/rules.test.ts",
+    "test:integration": "tsx --test tests/integration.test.ts",
+    "db:generate": "prisma generate",
+    "db:deploy": "prisma migrate deploy",
+    "db:seed": "tsx prisma/seed.ts",
+    "cleanup": "tsx scripts/cleanup.ts",
+    "db:local": "node scripts/local-db.mjs",
+    "test:http": "node --test tests/http.test.mjs",
+    "test:title": "tsx --test tests/title-http.test.ts",
+    "test:title": "tsx --test tests/title-http.test.ts",
+    "format": "prettier --write src tests scripts prisma/seed.ts package.json"
+  },
+  "dependencies": {
+    "@prisma/client": "6.19.3",
+    "next": "^16.0.0",
+    "qrcode": "^1.5.4",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.0",
+    "@types/node": "^22.0.0",
+    "@types/qrcode": "^1.5.5",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "dotenv": "^17.0.0",
+    "embedded-postgres": "18.4.0-beta.17",
+    "prettier": "^3.9.9",
+    "prisma": "6.19.3",
+    "tailwindcss": "^4.0.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0"
+  }
+}
