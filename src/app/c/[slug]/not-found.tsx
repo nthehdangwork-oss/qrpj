@@ -1,0 +1,1 @@
+export default function MissingCard(){ return <main className="product-status"><span aria-hidden="true">♡</span><h1>Chưa tìm thấy thiệp</h1><p>Đường dẫn có thể chưa chính xác hoặc thiệp chưa được phát hành. Bạn hãy kiểm tra lại mã QR với người gửi nhé.</p></main>; }

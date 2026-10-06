@@ -1,0 +1,115 @@
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "postgresql"
+  url = env("DATABASE_URL")
+}
+enum Category {
+  COUPLE
+  FAMILY
+  OCCASION
+}
+enum CardStatus {
+  DRAFT
+  ACTIVE
+  EXPIRED
+}
+enum OrderStatus {
+  PENDING
+  PAID
+  FAILED
+  EXPIRED
+  REVIEW
+}
+enum PaymentOutcome {
+  SUCCESS
+  FAILED
+  REVIEW
+}
+model Template {
+  id String @id
+  name String
+  category Category
+  palette String
+  icon String
+  description String
+  cards Card[]
+  @@map("template")
+}
+model Card {
+  id String @id @default(cuid())
+  templateId String
+  template Template @relation(fields: [templateId], references: [id])
+  slug String
+  content Json?
+  status CardStatus @default(DRAFT)
+  activatedAt DateTime?
+  expiresAt DateTime?
+  purgedAt DateTime?
+  createdAt DateTime @default(now())
+  order Order?
+  qrLink QrLink?
+  reservation SlugReservation?
+  assets Asset[]
+  @@index([status, expiresAt])
+  @@map("card")
+}
+model Order {
+  id String @id @default(cuid())
+  cardId String @unique
+  card Card @relation(fields: [cardId], references: [id])
+  ownerHash String
+  idempotencyKey String @unique
+  requestHash String
+  days Int
+  amount Int
+  currency String @default("VND")
+  status OrderStatus @default(PENDING)
+  createdAt DateTime @default(now())
+  paymentDeadline DateTime
+  paidAt DateTime?
+  payments Payment[]
+  @@index([status, paymentDeadline])
+  @@map("order")
+}
+model Payment {
+  id String @id @default(cuid())
+  orderId String
+  order Order @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  eventId String @unique
+  provider String
+  amount Int
+  currency String
+  outcome PaymentOutcome
+  receivedAt DateTime @default(now())
+  @@index([orderId])
+  @@map("payment")
+}
+model QrLink {
+  id String @id @default(cuid())
+  cardId String @unique
+  card Card @relation(fields: [cardId], references: [id])
+  slug String @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  @@map("qr_link")
+}
+model SlugReservation {
+  slug String @id
+  cardId String @unique
+  card Card @relation(fields: [cardId], references: [id])
+  reservedUntil DateTime?
+  @@map("slug_reservation")
+}
+
+model Asset {
+  id String @id
+  ownerHash String
+  data Bytes
+  mime String @default("image/webp")
+  createdAt DateTime @default(now())
+  cards Card[]
+  @@index([ownerHash, createdAt])
+  @@map("asset")
+}

@@ -1,0 +1,1148 @@
+/* Every design owns its visual composition; shared rules only provide readable content and controls. */
+.designed-card {
+  --design-paper: #f6f0e7;
+  --design-ink: #32362d;
+  --design-accent: #a44343;
+  background: var(--design-paper);
+  color: var(--design-ink);
+  width: 100%;
+  max-width: 520px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 24px;
+  font-family: "Be Vietnam Pro", sans-serif;
+  isolation: isolate;
+}
+.designed-card.design-immersive {
+  max-width: none;
+  border-radius: 0;
+  min-height: 100dvh;
+  padding-block: env(safe-area-inset-top) env(safe-area-inset-bottom);
+}
+.design-inner {
+  max-width: 620px;
+  margin: auto;
+}
+.design-cover {
+  position: relative;
+  padding: 40px 28px;
+  min-height: 660px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 22px;
+  overflow: hidden;
+}
+.design-cover h2 {
+  font:
+    500 clamp(30px, 7vw, 48px)/1.18 Georgia,
+    serif;
+  letter-spacing: -1.3px;
+  white-space: pre-line;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.design-cover small,
+.design-section > small,
+.design-signature > small,
+.design-event > small {
+  font:
+    600 10px/1.6 "Be Vietnam Pro",
+    sans-serif;
+  letter-spacing: 2px;
+}
+.design-cover p {
+  margin: 0;
+  line-height: 1.7;
+}
+.design-recipient {
+  font-size: 16px;
+}
+.design-date {
+  font-size: 12px;
+}
+.design-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.design-art {
+  position: relative;
+  min-height: 180px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #dbbda3;
+}
+.design-art i {
+  position: absolute;
+  display: block;
+  width: 75%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #9fa98c;
+  left: -20%;
+  top: 25%;
+}
+.design-art i:nth-child(2) {
+  left: 40%;
+  top: 45%;
+  background: #8c9d84;
+}
+.design-art i:nth-child(3) {
+  width: 25%;
+  top: 10%;
+  left: 65%;
+  background: #ffe6ad;
+}
+.design-art > span {
+  position: absolute;
+  left: 40%;
+  top: 30%;
+  font: 80px Georgia;
+  color: #fff4d9;
+}
+.design-action {
+  font:
+    500 12px/1.5 "Be Vietnam Pro",
+    sans-serif;
+  border: 1px solid currentColor;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  padding: 14px 20px;
+  min-height: 48px;
+  cursor: pointer;
+  align-self: center;
+  max-width: 100%;
+}
+.design-action:hover {
+  background: color-mix(in srgb, currentColor 9%, transparent);
+}
+.design-action:focus-visible,
+.designed-card button:focus-visible,
+.designed-card summary:focus-visible {
+  outline: 3px solid var(--design-accent);
+  outline-offset: 4px;
+}
+.design-scroll-hint {
+  font-size: 10px;
+  letter-spacing: 2px;
+  align-self: center;
+  margin-top: 20px;
+}
+.design-content {
+  padding: 0 28px 40px;
+}
+.design-section {
+  padding: 30px 0;
+  border-top: 1px solid color-mix(in srgb, currentColor 20%, transparent);
+  overflow-wrap: anywhere;
+}
+.design-section h3 {
+  font:
+    500 27px/1.3 Georgia,
+    serif;
+  margin: 14px 0;
+}
+.design-section p,
+.design-gift p {
+  font-size: 14px;
+  line-height: 1.9;
+  white-space: pre-line;
+}
+.design-image-button {
+  display: block;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  width: 100%;
+  cursor: zoom-in;
+}
+.design-image-button img {
+  display: block;
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+}
+.design-event {
+  padding: 24px 0;
+  margin-bottom: 20px;
+  border-block: 1px solid currentColor;
+  text-align: center;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+.design-signature {
+  text-align: center;
+  padding-top: 40px;
+}
+.design-signature p {
+  font: italic 26px Georgia;
+  margin: 18px 0;
+}
+.design-gift {
+  padding: 20px 0;
+  border-bottom: 1px solid currentColor;
+}
+.designed-card summary {
+  cursor: pointer;
+  padding: 14px 0;
+  min-height: 48px;
+  font-size: 14px;
+}
+.design-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  font-size: 12px;
+}
+.design-pagination button {
+  border: 1px solid currentColor;
+  background: transparent;
+  color: inherit;
+  width: 48px;
+  height: 48px;
+}
+.design-pagination button:disabled {
+  opacity: 0.3;
+}
+.design-book {
+  touch-action: pan-y;
+}
+.design-audio {
+  padding: 24px;
+  font-size: 11px;
+}
+.design-audio audio {
+  width: 100%;
+  margin-top: 12px;
+}
+.design-lightbox {
+  position: fixed;
+  inset: 0;
+  background: #111e;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 55px 20px;
+}
+.design-lightbox img {
+  max-width: 100%;
+  max-height: 85dvh;
+  object-fit: contain;
+}
+.design-lightbox button {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: white;
+  color: #222;
+  padding: 12px 22px;
+  border: 0;
+}
+.design-celebration {
+  text-align: center;
+  font-size: 32px;
+  animation: design-bloom 0.8s ease-out;
+}
+.design-chapters details {
+  border-bottom: 1px solid currentColor;
+}
+.design-chapters .design-section {
+  border: 0;
+}
+.design-immersive .design-cover {
+  min-height: 100dvh;
+}
+.layout-fullscreen .design-cover {
+  min-height: 680px;
+}
+.design-immersive.layout-fullscreen .design-cover {
+  min-height: 100dvh;
+}
+/* 01 — folded stationery. */
+.design-wax {
+  background: #f9e9e6;
+}
+.cover-envelope {
+  text-align: center;
+}
+.paper-envelope {
+  margin: 48px 0 28px;
+  height: 190px;
+  background: linear-gradient(150deg, #ead9cb 50%, #fff9f0 50%);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 18px 25px #644a3520;
+}
+.paper-envelope span {
+  background: #933e45;
+  color: #f8d4a0;
+  border-radius: 50%;
+  padding: 18px;
+  font-size: 25px;
+}
+/* 02 — a route with milestones. */
+.design-timeline {
+  --design-paper: #f0ebe2;
+  --design-ink: #663c32;
+  --design-accent: #b45741;
+}
+.journey-line {
+  display: grid;
+  grid-template-columns: 45px 1fr;
+  gap: 15px;
+  align-items: center;
+  border-left: 1px solid #b45741;
+  padding-left: 20px;
+  margin: 20px 10px;
+}
+.journey-line b {
+  font: italic 36px Georgia;
+}
+.journey-line span {
+  font-size: 11px;
+}
+.day-counter {
+  font: 60px Georgia;
+  border-top: 1px solid;
+  padding-top: 20px;
+}
+.day-counter small {
+  display: block;
+}
+.design-timeline .design-sections {
+  border-left: 1px solid #b4574166;
+  padding-left: 25px;
+}
+.design-timeline .design-section {
+  position: relative;
+  border: 0;
+}
+.design-timeline .design-section:before {
+  content: "";
+  position: absolute;
+  left: -31px;
+  top: 30px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #b45741;
+}
+/* 03 — asymmetrical poetry. */
+.design-poem {
+  --design-paper: #ece9f0;
+  --design-ink: #433d58;
+  --design-accent: #776191;
+}
+.design-poem .design-cover {
+  padding-right: 65px;
+  justify-content: flex-start;
+  padding-top: 70px;
+}
+.poetry-mark {
+  font: 150px/0.7 Georgia;
+  color: #ac9bbd;
+}
+.design-poem h2 {
+  font-style: italic;
+}
+.poetry-line {
+  width: 60px;
+  height: 1px;
+  background: currentColor;
+  margin-block: 20px;
+}
+.poetry-flower {
+  position: absolute;
+  right: -20px;
+  bottom: 15px;
+  font: 170px Georgia;
+  color: #b4a4c5;
+  transform: rotate(20deg);
+}
+.design-poem .design-section p {
+  font-family: Georgia, serif;
+  font-size: 20px;
+  line-height: 2;
+}
+/* 04 — a cinema contact sheet. */
+.design-cinema {
+  --design-paper: #151618;
+  --design-ink: #ebe2d3;
+  --design-accent: #e7a578;
+}
+.film-label,
+.film-caption {
+  font: 10px monospace;
+  letter-spacing: 2px;
+}
+.film-frame {
+  height: 280px;
+  position: relative;
+  border-block: 12px dotted #a9a096;
+  padding: 8px 0;
+}
+.film-frame > span {
+  position: absolute;
+  right: 12px;
+  top: 20px;
+  color: #e57866;
+  font: 10px monospace;
+}
+.design-cinema h2 {
+  text-transform: uppercase;
+  font-family: Arial, sans-serif;
+  font-weight: 800;
+  font-size: 35px;
+}
+.design-cinema .design-section img {
+  filter: grayscale(1);
+}
+/* 05 — a night sky. */
+.design-celestial {
+  --design-paper: #111e35;
+  --design-ink: #e3d3ab;
+  --design-accent: #e3d3ab;
+  background:
+    radial-gradient(ellipse at 85% 25%, #253b5f, transparent 55%),
+    var(--design-paper);
+}
+.design-celestial .design-cover {
+  text-align: center;
+}
+.constellation {
+  height: 230px;
+  position: relative;
+}
+.constellation i {
+  display: block;
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border: 1px solid #e3d3ab55;
+  border-radius: 50%;
+  left: calc(50% - 80px);
+  top: 25px;
+  box-shadow:
+    0 0 0 25px #e3d3ab09,
+    0 0 0 55px #e3d3ab05;
+}
+.constellation b {
+  position: absolute;
+  left: 45%;
+  top: 20px;
+  font-size: 64px;
+}
+.constellation span {
+  position: absolute;
+  left: 15%;
+  top: 130px;
+  font-size: 24px;
+}
+.constellation em {
+  position: absolute;
+  right: 10%;
+  top: 110px;
+  font-size: 36px;
+}
+.design-celestial.is-open .constellation {
+  filter: drop-shadow(0 0 18px #ffe9a4);
+}
+/* 06 — editorial wedding issue. */
+.design-editorial {
+  --design-paper: #f5f1e9;
+  --design-ink: #36392f;
+}
+.editorial-masthead {
+  font: 12px Georgia;
+  letter-spacing: 4px;
+  border-block: 1px solid;
+  padding: 12px 0;
+  text-align: center;
+}
+.editorial-cover {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 270px;
+  gap: 10px;
+}
+.editorial-cover > span {
+  font: 100px/0.95 Georgia;
+  letter-spacing: -10px;
+  align-self: center;
+  z-index: 1;
+}
+.editorial-cover .design-art {
+  border-radius: 100px 100px 0 0;
+}
+.editorial-bottom {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  border-top: 1px solid;
+  padding-top: 18px;
+  font-size: 9px;
+}
+.design-editorial .design-section:nth-child(even) {
+  margin-left: 35px;
+  border-left: 1px solid;
+  padding-left: 20px;
+}
+/* 07 — botanical arch. */
+.design-botanical {
+  --design-paper: #e8eddf;
+  --design-ink: #3f573e;
+  --design-accent: #657f57;
+}
+.design-botanical .design-cover {
+  text-align: center;
+}
+.botanical-arch {
+  border: 1px solid #71816b;
+  border-radius: 160px 160px 0 0;
+  padding: 35px 20px;
+  box-shadow:
+    inset 0 0 0 8px #e8eddf,
+    inset 0 0 0 9px #71816b;
+}
+.botanical-arch > span {
+  font: 100px Georgia;
+  display: block;
+  color: #81906b;
+}
+.design-botanical.is-open .botanical-arch > span {
+  transform: rotate(30deg) scale(1.2);
+  transition: transform 0.6s;
+}
+.design-botanical .design-section {
+  background: #f6f7f0;
+  padding: 28px;
+  margin-top: 18px;
+  border: 0;
+  border-radius: 60px 0 60px 0;
+}
+/* 08 — newspaper columns and headlines. */
+.design-newspaper {
+  --design-paper: #e9e4d8;
+  --design-ink: #2c2c28;
+}
+.news-masthead {
+  font: bold 75px/0.9 Georgia;
+  text-align: center;
+  letter-spacing: -5px;
+}
+.news-edition {
+  display: flex;
+  justify-content: space-between;
+  border-block: 3px double;
+  padding: 9px 0;
+  font: 8px monospace;
+}
+.design-newspaper h2 {
+  font-weight: bold;
+  font-size: 37px;
+}
+.news-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.news-columns p {
+  font: 12px/1.75 Georgia;
+  max-height: 230px;
+  overflow: hidden;
+}
+.news-rule {
+  border-block: 1px solid;
+  padding: 10px 0;
+  font: bold 9px Georgia;
+  letter-spacing: 2px;
+}
+/* 09 — layered family scrapbook. */
+.design-scrapbook {
+  --design-paper: #f0dabb;
+  --design-ink: #635246;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent 0 29px,
+    #7c6b5315 30px
+  );
+}
+.scrap-sticker {
+  background: #a54439;
+  color: #fff0d4;
+  padding: 10px 20px;
+  transform: rotate(-8deg);
+  align-self: flex-start;
+  font: bold 12px monospace;
+}
+.scrap-photo {
+  background: #fffaf0;
+  padding: 12px 12px 30px;
+  transform: rotate(5deg);
+  box-shadow: 6px 8px 0 #55463020;
+  margin: 10px;
+  height: 270px;
+}
+.scrap-photo .design-art,
+.scrap-photo img {
+  height: 90%;
+  min-height: 0;
+}
+.scrap-photo small {
+  display: block;
+  margin-top: 8px;
+  text-align: center;
+}
+.scrap-notes {
+  display: flex;
+  gap: 14px;
+}
+.scrap-notes span {
+  background: #f8f1b2;
+  padding: 14px;
+  transform: rotate(-4deg);
+  font: italic 22px Georgia;
+}
+.design-scrapbook .design-section {
+  background: #fff8e8;
+  border: 0;
+  padding: 25px;
+  box-shadow: 5px 5px 0 #55463020;
+}
+/* 10 — airmail postcard. */
+.design-postcard {
+  --design-paper: #faf0d9;
+  --design-ink: #334d61;
+  border: 8px solid transparent;
+  border-image: repeating-linear-gradient(
+      45deg,
+      #a44942 0 12px,
+      #f7eed9 12px 24px,
+      #3d6078 24px 36px,
+      #f7eed9 36px 48px
+    )
+    8;
+}
+.postcard-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.postage-stamp {
+  border: 2px dashed;
+  padding: 10px;
+  font-size: 10px;
+  text-align: center;
+}
+.postcard-landscape {
+  height: 200px;
+}
+.postcard-address {
+  font: 12px/2 monospace;
+  border-top: 1px solid;
+  padding-top: 20px;
+}
+.design-postcard .design-section {
+  background: repeating-linear-gradient(transparent 0 28px, #837b6822 29px);
+  font-family: Georgia;
+}
+/* 11 — a traditional longevity scroll. */
+.design-heritage {
+  --design-paper: #ede0bc;
+  --design-ink: #6c302b;
+  --design-accent: #6c302b;
+}
+.heritage-border {
+  border: 4px double;
+  padding: 30px 18px;
+  text-align: center;
+  position: relative;
+}
+.heritage-word {
+  display: block;
+  font: italic 110px Georgia;
+  margin: 25px 0;
+}
+.design-heritage h2 {
+  font-size: 27px;
+}
+.heritage-seal {
+  border: 2px solid;
+  width: 50px;
+  font: 12px/1.6 Georgia;
+  margin: 25px auto 0;
+  padding: 5px;
+}
+.design-heritage .design-section {
+  border-block: 5px solid #854b32;
+  background: #fff3d6;
+  margin-top: 20px;
+  padding: 30px 22px;
+}
+/* 12 — a dinner menu. */
+.design-menu {
+  --design-paper: #fff8df;
+  --design-ink: #224f43;
+  --design-accent: #224f43;
+  border-inline: 10px solid #224f43;
+}
+.menu-top {
+  font: 10px monospace;
+  letter-spacing: 2px;
+  border-bottom: 1px solid;
+  padding-bottom: 15px;
+}
+.plate {
+  border: 3px double #6b8a62;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  display: grid;
+  place-items: center;
+  align-self: center;
+  box-shadow:
+    inset 0 0 0 15px #fff8df,
+    inset 0 0 0 16px #6b8a62;
+}
+.plate span {
+  font: 90px Georgia;
+  color: #ba4d38;
+}
+.design-menu .design-cover {
+  text-align: center;
+}
+.menu-rule {
+  height: 4px;
+  border-block: 1px solid;
+  width: 100%;
+}
+.design-menu summary {
+  font: italic 21px Georgia;
+  padding-block: 20px;
+}
+/* 13 — lacquer red lunar invitation. */
+.design-lunar {
+  --design-paper: #a32d27;
+  --design-ink: #f6d58b;
+  --design-accent: #ffe2a4;
+}
+.design-lunar .design-cover {
+  text-align: center;
+  padding-top: 75px;
+}
+.lunar-word {
+  font: italic 110px Georgia;
+}
+.lunar-medallion {
+  border: 3px double;
+  width: 82px;
+  height: 82px;
+  display: grid;
+  place-items: center;
+  align-self: center;
+  font: 40px Georgia;
+  transform: rotate(-8deg);
+}
+.lunar-lanterns {
+  position: absolute;
+  inset: 0 25px auto;
+  display: flex;
+  justify-content: space-between;
+}
+.lunar-lanterns i {
+  width: 40px;
+  height: 60px;
+  border: 2px solid #f6d58b;
+  border-radius: 40%;
+  background: repeating-linear-gradient(
+    90deg,
+    #f6d58b20 0 5px,
+    transparent 5px 12px
+  );
+}
+.design-lunar .design-section {
+  border: 1px solid #f6d58b80;
+  padding: 24px;
+  margin-top: 20px;
+}
+/* 14 — snow globe. */
+.design-winter {
+  --design-paper: #e0edf0;
+  --design-ink: #385969;
+  --design-accent: #476c7d;
+  background: linear-gradient(var(--design-paper), #f6f9f4);
+}
+.design-winter .design-cover {
+  text-align: center;
+}
+.snow-globe {
+  width: 230px;
+  height: 230px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  align-self: center;
+  position: relative;
+  background: radial-gradient(circle at 30% 20%, white, #b1ccd5);
+  box-shadow:
+    0 20px 0 -8px #436373,
+    0 27px 0 -6px #365161;
+  margin-bottom: 35px;
+}
+.snow-globe i {
+  position: absolute;
+  border-bottom: 110px solid #406653;
+  border-left: 45px solid transparent;
+  border-right: 45px solid transparent;
+  left: 70px;
+  top: 55px;
+}
+.snow-globe span {
+  position: absolute;
+  left: 88px;
+  top: 30px;
+  font-size: 40px;
+  color: white;
+}
+.snow-globe b {
+  position: absolute;
+  right: 30px;
+  bottom: 45px;
+  font-size: 40px;
+  color: white;
+}
+.design-winter.is-open .snow-globe b {
+  animation: design-snow 2s infinite;
+}
+.design-winter .design-section {
+  background: #ffffff88;
+  padding: 25px;
+  border-radius: 18px;
+  margin-block: 15px;
+  border: 0;
+}
+/* 15 — typographic birthday poster. */
+.design-birthday {
+  --design-paper: #f8f047;
+  --design-ink: #623cad;
+  --design-accent: #d5433f;
+}
+.birthday-top {
+  display: flex;
+  justify-content: space-between;
+  font: bold 10px monospace;
+}
+.birthday-top b {
+  font-size: 35px;
+}
+.birthday-type {
+  font:
+    900 78px/0.82 Arial,
+    sans-serif;
+  letter-spacing: -7px;
+  transform: rotate(-5deg);
+  margin: 25px 0;
+  z-index: 1;
+}
+.birthday-type em {
+  color: #e5688e;
+  font-style: normal;
+  -webkit-text-stroke: 1px #623cad;
+}
+.birthday-cake {
+  position: absolute;
+  right: 22px;
+  top: 240px;
+  font: bold 65px/0.65 monospace;
+  color: #e65e83;
+  transform: rotate(12deg);
+}
+.design-birthday .design-recipient {
+  background: #623cad;
+  color: #fff5be;
+  padding: 10px 15px;
+  transform: rotate(3deg);
+  align-self: flex-start;
+  font-weight: 800;
+}
+.design-birthday.is-open .birthday-cake {
+  opacity: 0.3;
+}
+.design-birthday .design-section {
+  background: #fbd8e3;
+  border: 2px solid #623cad;
+  padding: 25px;
+  margin-top: 20px;
+  box-shadow: 6px 6px 0 #623cad;
+}
+/* 16 — school yearbook. */
+.design-yearbook {
+  --design-paper: #f3edda;
+  --design-ink: #254c8f;
+  --design-accent: #d25a3b;
+  background-image:
+    linear-gradient(#254c8f12 1px, transparent 1px),
+    linear-gradient(90deg, #254c8f12 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.yearbook-title {
+  font: bold 70px/0.9 Georgia;
+  letter-spacing: -4px;
+}
+.yearbook-title em {
+  font-weight: 400;
+}
+.yearbook-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  height: 190px;
+}
+.yearbook-grid > div:last-child {
+  border: 2px solid #254c8f;
+  transform: rotate(6deg);
+  display: grid;
+  place-content: center;
+  text-align: center;
+  font: 60px Georgia;
+  background: #f2d959;
+}
+.yearbook-grid small {
+  font-size: 11px;
+}
+.design-yearbook h2 {
+  font-size: 25px;
+}
+.yearbook-scribble {
+  font: italic 22px Georgia;
+  transform: rotate(-5deg);
+  color: #bb4c39;
+}
+.design-yearbook .design-section {
+  background: #fff9e9;
+  padding: 25px;
+  border: 1px solid #254c8f;
+  box-shadow: 6px 6px 0 #c3cfd3;
+}
+/* 17 — graduation manifesto. */
+.design-graduation {
+  --design-paper: #173b30;
+  --design-ink: #f0de9c;
+  --design-accent: #edcc72;
+}
+.grad-symbol {
+  position: absolute;
+  right: 30px;
+  top: 70px;
+  font: 90px Georgia;
+}
+.grad-symbol span {
+  font-size: 30px;
+  position: absolute;
+  left: 20px;
+  top: 25px;
+}
+.grad-title {
+  font:
+    900 90px/0.85 Arial,
+    sans-serif;
+  letter-spacing: -6px;
+  padding-top: 90px;
+  position: relative;
+}
+.grad-title > span {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-weight: 400;
+}
+.design-graduation h2 {
+  font: italic 30px Georgia;
+}
+.grad-rule {
+  border-block: 1px solid;
+  padding: 15px 0;
+  font: 10px monospace;
+  letter-spacing: 3px;
+}
+.design-graduation .design-section {
+  border: 3px double;
+  padding: 25px;
+  margin-block: 20px;
+}
+/* 18 — a detachable event ticket. */
+.design-ticket {
+  --design-paper: #5039bd;
+  --design-ink: #f0f77e;
+  --design-accent: #f0f77e;
+}
+.design-ticket .design-cover {
+  padding: 30px 20px;
+  gap: 0;
+}
+.ticket-head {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid;
+  padding: 15px;
+  font: 12px monospace;
+}
+.ticket-body {
+  padding: 30px 18px;
+  border-inline: 1px solid;
+}
+.ticket-title {
+  font:
+    900 50px/0.98 Arial,
+    sans-serif;
+  letter-spacing: -3px;
+  margin-block: 25px;
+  overflow-wrap: anywhere;
+}
+.ticket-title em {
+  font: italic 45px Georgia;
+  letter-spacing: 0;
+}
+.ticket-stub {
+  border: 1px solid;
+  border-top: 2px dashed;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  font: 10px monospace;
+}
+.barcode {
+  height: 45px;
+  width: 90px;
+  background: repeating-linear-gradient(
+    90deg,
+    currentColor 0 2px,
+    transparent 2px 4px,
+    currentColor 4px 5px,
+    transparent 5px 9px
+  );
+}
+.design-ticket .design-action {
+  margin-top: 25px;
+}
+.design-ticket.is-open .ticket-stub {
+  transform: translateY(8px) rotate(-3deg);
+  transition: transform 0.4s;
+}
+.design-ticket .design-section {
+  border: 1px solid;
+  padding: 24px;
+  margin-top: 20px;
+}
+/* Catalog previews use the same cover markup as the actual product. */
+.template-preview {
+  height: 340px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 14px;
+  background: #eee;
+  pointer-events: none;
+}
+.template-preview .designed-card {
+  width: 390px;
+  max-width: none;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%) scale(0.51);
+  transform-origin: top center;
+  border-radius: 0;
+}
+.template-preview .design-cover {
+  height: 665px;
+  min-height: 665px;
+}
+.template-preview .design-cover h2 {
+  font-size: 38px;
+}
+.template .template-description {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 10px 0;
+}
+.template-style {
+  display: inline-block;
+  font: 10px monospace;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 14px;
+}
+.design-gallery-intro {
+  max-width: 600px;
+}
+@keyframes design-bloom {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes design-snow {
+  0% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+}
+.no-motion * {
+  animation: none !important;
+  transition: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .designed-card * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+@media (max-width: 360px) {
+  .design-cover {
+    padding-inline: 20px;
+  }
+  .birthday-type {
+    font-size: 68px;
+  }
+  .grad-title {
+    font-size: 76px;
+  }
+  .editorial-cover > span {
+    font-size: 82px;
+  }
+  .ticket-title {
+    font-size: 43px;
+  }
+  .design-content {
+    padding-inline: 20px;
+  }
+}
+
+.design-postcard.is-open .postcard-landscape {
+  display: none;
+}
+.design-postcard.is-open .postcard-address {
+  min-height: 180px;
+  font-size: 18px;
+  padding-block: 35px;
+  border-block: 1px solid;
+}

@@ -1,5 +1,9 @@
 # Gửi thương — thiệp cá nhân hoá
 
+> **Đã triển khai tải ảnh trực tiếp:** Editor chọn tệp JPEG/PNG/WebP (15 MB), nén WebP và lưu riêng trong PostgreSQL; ảnh nháp 24 giờ, ảnh xuất bản theo thời hạn thiệp. Chi tiết: [Tải ảnh điện thoại](docs/13-direct-image-upload.md). Các mô tả chỉ hỗ trợ URL ảnh trước đây đã được thay thế. Private object storage và xuất ảnh tổng hợp trong tài liệu 11 vẫn là lộ trình.
+
+> **Quy tắc hiện hành — URL tự động:** Khách chỉ sửa Page Title, không nhập hoặc chọn slug/domain. Preview → chỉnh title → chọn ngày → tạo đơn. Server cấp mã link bất định dạng `c-<32 ký tự hex>`; retry cùng phiên và Idempotency-Key giữ nguyên link. POST /api/orders chỉ nhận templateId, days, content; gửi thêm slug bị từ chối 422. GET /api/slugs/check ngừng hỗ trợ (410). Các mô tả chọn/kiểm tra slug phía dưới là lịch sử đã bị thay thế; slug trong dữ liệu vẫn là mã nội bộ để định tuyến QR. Link cũ không đổi.
+
 ## Cập nhật ngày 01/10/2026
 
 - [11 — Lưu ảnh và QR kiểu photobooth](docs/11-photobooth-storage-qr.md): đặc tả mới về kho ảnh riêng tư, upload/xuất PNG, QR nhận ảnh, chặn truy cập khi hết gói và xoá binary mục tiêu trong 24 giờ. **Chưa triển khai code/storage/migration**; MVP vẫn nhận URL ảnh ngoài.
@@ -8,7 +12,7 @@
 Kiểm thử bổ sung: `npm run test:title` cần dev server cùng DATABASE_URL đang hoạt động; tạo các thiệp QA riêng để kiểm tra title mặc định của dữ liệu cũ, title hết hạn và trang không tồn tại. Không chỉnh dữ liệu thiệp có sẵn của khách. Cùng với `npm test`, `npm run test:http` và `npm run build`, đây là bộ kiểm tra Page Title của đợt cập nhật.
 
 
-MVP mobile-first cho khách Việt: chọn một trong 12 mẫu, chỉnh thiệp, xem trước, chọn slug và gói 2–5 ngày, thanh toán QR mock, nhận link và QR chia sẻ. Toàn bộ giá là giả định cần PO xác nhận, không nhận tiền thật.
+MVP mobile-first cho khách Việt: chọn một trong 18 mẫu, chỉnh thiệp, xem trước, chọn slug và gói 2–5 ngày, thanh toán QR mock, nhận link và QR chia sẻ. Toàn bộ giá là giả định cần PO xác nhận, không nhận tiền thật.
 
 ## Kiến trúc và công nghệ
 
@@ -95,3 +99,8 @@ PAYMENT_PROVIDER=mock là provider duy nhất có thể chạy. Bật ALLOW_MOCK
 - [Prisma 6 — transaction](https://www.prisma.io/docs/orm/v6/prisma-client/queries/transactions)
 
 Các chỉ tiêu hiệu năng và tương thích trong docs là tiêu chí nghiệm thu, không phải kết quả đo sẵn.
+
+
+Bộ mẫu được thiết kế lại thành 18 hướng bố cục và tương tác riêng; xem [ma trận thiết kế và nguồn tham khảo](docs/12-template-design-system.md). Kiểm thử toàn bộ thiết kế với `node node_modules/tsx/dist/cli.mjs --test tests/designs-http.test.ts` khi dev server và bypass local đang chạy.
+
+Sau khi cập nhật code, chạy `npm run db:generate` và `npm run db:deploy` để thêm bảng lưu ảnh; migration không xóa dữ liệu thiệp cũ.

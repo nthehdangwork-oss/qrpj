@@ -7,7 +7,7 @@
     "build": "next build --webpack",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "test": "tsx --test tests/rules.test.ts",
+    "test": "tsx --test tests/rules.test.ts tests/drafts.test.ts",
     "test:integration": "tsx --test tests/integration.test.ts",
     "db:generate": "prisma generate",
     "db:deploy": "prisma migrate deploy",
@@ -16,8 +16,10 @@
     "db:local": "node scripts/local-db.mjs",
     "test:http": "node --test tests/http.test.mjs",
     "test:title": "tsx --test tests/title-http.test.ts",
-    "test:title": "tsx --test tests/title-http.test.ts",
-    "format": "prettier --write src tests scripts prisma/seed.ts package.json"
+    "format": "prettier --write src tests scripts prisma/seed.ts package.json",
+    "test:uploads": "tsx --test tests/uploads-http.test.ts",
+    "test:designs": "tsx --test tests/designs-http.test.ts",
+    "test:bypass": "node --test tests/bypass-http.test.mjs"
   },
   "dependencies": {
     "@prisma/client": "6.19.3",
@@ -25,6 +27,7 @@
     "qrcode": "^1.5.4",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "sharp": "0.35.5",
     "zod": "^4.0.0"
   },
   "devDependencies": {
